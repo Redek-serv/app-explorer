@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fiddly: Online HTML, CSS and JS Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" itemprop="description" content="Test your Javascript, CSS and HTML online with Fiddly code editor. Fiddly is an ultra fast front-end playground for web developers and designers or even beginners.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper half" id="lh">
+        <form>
+            <h2>HTML</h2>
+            <textarea id="html" class="codeBlock" placeholder="enter your markup here.." autofocus ></textarea>
+            <h2>CSS</h2>
+            <textarea id="css" class="codeBlock" placeholder="put your style here.."></textarea>
+            <h2>JS</h2>
+            <textarea id="js" class="codeBlock" placeholder="add your script here.."></textarea>
+        </form>
+        <div id="help" class="help">Help ?</div>
+        <div class="info" id="info">
+                    <h3>Keyboard Shortcuts</h3>
+                    <ul class="shortcuts">
+                        <li><code>CTRL</code> + <code>Return</code> <span>Run fiddly</span></li>
+                        <li><code>CTRL</code> + <code>S</code> <span>Save fiddly</span></li>
+                        <li><code>CTRL</code> + <code>E</code> <span>Clear fiddly</span></li>
+                    </ul>
+                    <div class="about-fiddly">
+                        <ul>
+                            <li><a href="http://github.com/scaledrop/fiddly" title="Fork GitHub repo">GitHub</a></li>
+                            <li><a href="http://scaledrop.net" title="Read posts">Blog</a></li>
+                            <li><a href="http://twitter.com/scaledrop" title="Follow on Twitter">Twitter</a></li>
+                            <li><a href="http://scaledrop.com/test" title="Responsive design testing tool">Test RWD</a></li>
+                        </ul>
+                    </div>
+                <span class="close-help" id="close">-</span>
+        </div>
+    </div>
+    <div class="output half" id="output">
+        <div class="top-controls">
+            <button class="ctrls" id="runBtn"><span class="lb">Run</span><span class="sb">R</span>
+                <span class="btnkeys"></span>
+            </button>
+            <button class="ctrls" id="saveBtn"><span class="lb">Save</span><span class="sb">S</span>
+                <span class="btnkeys"></span>
+            </button>
+            <button class="ctrls" id="resetBtn"><span class="lb">Clear</span><span class="sb">C</span>
+                <span class="btnkeys"></span>
+            </button>
+            
+        </div>
+        <div id="rh">
+            <iframe id="outframe" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        utilities.switch("click", "keydown");
+    </script>
+</body>
+
+</html>
