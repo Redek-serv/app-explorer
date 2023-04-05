@@ -1,0 +1,283 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sua Rádio Online</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <meta name="DC.title" content="Sua Rádio Online" />
+    <meta name="description"
+        content="Sua Rádio Online - Crie suas próprias rádios (playlists) online, escute e compartilhe de forma fácil e rápido." />
+    <meta name="keywords" content="rádios mais ouvidas, novas rádios, novos usuários, rádios mais favoritadas">
+    <link rel="shortcut icon" href="/imagens/layout/favicon.ico" />
+
+    <link href="css/default_incorp.css" rel="stylesheet" type="text/css" />
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        html {
+            background-color: transparent;
+        }
+
+        #videoDiv {
+            margin-right: 3px;
+        }
+
+
+        #videoInfo {
+            margin-left: 3px;
+            text-align: left;
+        }
+
+        .btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            box-sizing: border-box;
+            display: inline-block;
+            padding-top: 7px;
+            font-size: 15px;
+        }
+
+        .btnPlay {
+            border-radius: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 40px;
+            padding-top: 18px;
+            padding-left: 9px;
+        }
+
+        .play,
+        .next {
+            padding: 6px 10px;
+        }
+
+        .pause,
+        .unmute {
+            padding: 6px 8px;
+        }
+
+        .mute {
+            padding: 6px 11px;
+        }
+
+        .back {
+            padding: 6px;
+        }
+
+        .btnColor {
+            background-color: #f00;
+            color: #000;
+        }
+
+        #progress {
+            color: #CCC;
+        }
+
+        #playerState {
+            color: #CCC;
+        }
+
+        #musicname {
+            color: #CCC;
+        }
+
+        .color {
+            color: #FFF;
+        }
+
+        #load {
+            width: 100%;
+            float: left;
+            background-color: #F00;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        #progressSlider {
+            background: #A44 !important;
+        }
+
+        #volumeSlider {
+            background: #A44 !important;
+        }
+
+        #progressSlider .ui-slider-range {
+            background: #F00 !important;
+        }
+
+        #volumeSlider .ui-slider-range {
+            background: #F00 !important;
+        }
+
+        #load_incorp {
+            width: 80%;
+            float: left;
+            background-color: #F00;
+            margin-left: 220px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        #text {
+            float: left;
+            width: 80%;
+            background-color: transparent;
+            position: absolute;
+            z-index: 10;
+            margin-top: -25px;
+            color: #CCC;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        #bg_text {
+            float: left;
+            width: 80%;
+            background-color: #F00;
+            position: absolute;
+            z-index: 1;
+            margin-top: -25px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        #progress {
+            float: left;
+            width: 0%;
+            background-color: #000;
+            position: absolute;
+            z-index: 5;
+            margin-top: -25px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_incorporar" style="background-color:transparent; margin:0 10px;">
+
+        <div id="videoInfo">
+            <div id="painelControle">
+                <div style="display:block; width:100%;">
+                    <!--<div class="verticalMiddle alignLeft">
+                    <a href="http://www.suaradioonline.com.br/playlist/decom-som-edit" target="_blank" class="color">&nbsp; <img src="http://www.suaradioonline.com/imagens/layout/logo.png" width="150" height="49" alt="visite o site Sua Rádio Online e crie suas próprias web rádios e playlists online" class="img_box_lower float_left" /></a>
+                </div>-->
+                </div>
+                <br />
+                <div id="btnPlay" class="btnPlay btnColor">
+                    <a href="javascript:void(0);" onclick="playVideo();" class="btnColor">
+                        <i class="fa fa-play"></i>
+                    </a>
+                </div>
+                <div class="progresso">
+                    <strong>DECOM TV: </strong>
+                    <div id="musicname" style="display:inline-block;">Sintonizando</div><br />
+                    <!--<div id="progressSlider" style="margin-top:10px;"></div>--><br />
+                    <div class="verticalMiddle" style="margin-top:-8px;">
+                        <div class="verticalMiddle">
+
+                            <div class="verticalMiddle" style="min-width:15px;">
+                                <a href="javascript:void(0);" onclick="pauseVideo();" class="btn btnColor">
+                                    <i class="fa fa-pause"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="verticalMiddle">
+                            <div id="soundBar">
+                                <div id="volumeSlider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div style="display:none;">
+                <p>
+                <div style="float:left; width:35%">Tempo Atual: <span id="videoCurrentTime">--:--</span></div> Duração:
+                <span id="videoDuration">--:--</span></p>
+                <p>Bytes Total: <span id="bytesTotal">--</span> | Start Bytes: <span id="startBytes">--</span> | Bytes
+                    Loaded: <span id="bytesLoaded">--</span></p>
+            </div>
+            <div style="display:none;">
+                <p><input id="volumeSetting" type="text" size="3" value="100" />&nbsp;<a href="javascript:void(0)"
+                        onclick="setVideoVolume();">&lt;- Set Volume</a> | Volume: <span id="volume">--</span></p>
+            </div>
+            <div class="caixa" style=" text-align: center;">
+
+                <select id="list_musics" name="list_musics" onchange="loadVideo();" size="10"
+                    style="width:100%px; border:0; margin:0 auto; visibility:hidden; display:none;">
+
+                    <option value="qaR8tQaid_M" selected="selected">COMO CRIAR APLICATIVO SCREENSHOT MIRRORING PARA SMARTPHONE COM MIT APP INVENTOR</option>
+                    <option value="zFEoYFodSKI">COMO CRIAR APLICATIVO EDITOR DE CODE PARA SMARTPHONE COM NIOTRON</option>
+                    <option value="JKJsWrtvD14">COMO CONVERTE SEUS PROJETOS WEB</option>
+                    <option value="1bV7_FlMH2g">COMO CRIAR APLICATIVOS EM PWA PROGRESSIVE WEB APP</option>
+                    <option value="HyrPDwM9rsg">TRANSFORME SEUS APLICATIVOS WEB APP EM PWA</option>
+                    <option value="6vIUfYNMAlI">COMO CRIAR UM SERVIDOR PHP NO GOOGLE CLOUD SHELL</option>
+                    <option value="1U85Gl8Sf_8">Novo Site DecomRradio com Novidades</option>
+                    <option value="RVoTaDfLGRU">Você que aprender a fazer um APP gerador App Inventor 2</option>
+
+                </select>
+            </div>
+
+        </div>
+        <div id="videoDiv">Loading...</div>
+    </div>
+
+
+    <script src="js/appInit.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">google.load("swfobject", "2.1");</script>
+    <script type="text/javascript" src="radios.php?idRadio="></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#volumeSlider").slider({
+                value: 50,
+                range: "min",
+                animate: true,
+                change: function (event, ui) { setVideoVolume($("#volumeSlider").slider("option", "value")) }
+            });
+            $("#progressSlider").slider({
+                value: 0,
+                range: "min",
+                animate: true,
+                slide: function (event, ui) { timeMusic(ui.value) }
+            });
+        });
+
+        window.onload = function () {
+            startVideo = setInterval(function () {
+                loadVideo();
+                if ($('#playerState').html() == '--') {
+                    //clearTimeout(startVideo);
+                }
+            }, 2000);
+            stopVideo = setInterval(function () {
+                pauseVideo();
+            }, 2000);
+
+            clearTimeout(stopVideo);
+            setInterval(function () { clearTimeout(startVideo); }, 5000);
+
+
+            setInterval(function () {
+                $("#progressSlider").slider("option", "disabled", true);
+            }, 10000);
+        }
+    </script>
+</body>
+
+</html>
