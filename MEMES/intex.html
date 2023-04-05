@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Meme Maker</title>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="settings.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+</head>
+<script>
+
+    var imageActionSrc='';
+
+    function renderSelection(){
+        for(var i=0;i<Settings.memes.length;i++){
+            var memeSelectionBlock='<a class="waves-effect waves-light col s12 memeImage"><img class="responsive-img  z-depth-1" src="'+Settings.memes[i].image+'"/></a>';
+            $('#memes').append(memeSelectionBlock);
+        }
+    }
+
+
+    function meme(){
+
+        topline = document.getElementById("top_text");
+        bottomline = document.getElementById("bottom_text");
+        c = document.getElementById("canvas"); // canvas;
+        ctxt = c.getContext("2d");
+        var image = new Image;
+
+        function writeMeme(text, x, y){
+            var f = null; // Font size (in pt)
+            for (f = 36; f >= 0; f -= 1) {
+                ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
+                if (ctxt.measureText(text.toUpperCase()).width < c.width - 10) {
+                    ctxt.fillText(text.toUpperCase(), x, y);
+                    ctxt.strokeText(text.toUpperCase(), x, y);
+                    break;
+                }
+            }
+        }
+
+        function renderMeme(){
+            ctxt.drawImage(image, 0, 0, c.width, c.height);
+            writeMeme(topline.value, c.width / 2, 50);
+            writeMeme(bottomline.value, c.width / 2, c.height - 10);
+        }
+
+        $(document).on("click", ".memeImage", function(){
+            $("html,body").animate({ scrollTop: 0 }, "slow");
+            var memeSrc=$(this).find('img').attr('src');
+            var width=$(this).find('img').width();
+            var height=$(this).find('img').height();
+            $('#memes').slideToggle("fast");
+            renderMemeMaker(memeSrc,width,height);
+        });
+
+        $(document).on("keyup", "input", function(){
+            renderMeme();
+        });
+
+
+        function renderMemeMaker(memeSrc,width,height){
+            $('#constructor').show();
+            $('#canvas').attr('width',width);
+            $('#canvas').attr('height',height);
+
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            image.src = memeSrc;
+            image.onload = function(){
+                ctxt.textAlign = "center";
+                ctxt.fillStyle = "white";
+                ctxt.strokeStyle = "black";
+                ctxt.lineWidth = 2;
+                renderMeme();
+            };
+        }
+
+    }
+
+    $(document).on("click", "#selectMemeButton", function(){
+        $('#memes').slideToggle("fast");
+        $('.select-btn-color').css('background-color','#'+Settings.selectColor);
+        $('#constructor').hide();
+    });
+
+
+    function save(){
+        c = document.getElementById("canvas");
+        imageActionSrc=c.toDataURL();
+        AppsgeyserJSInterface.saveImageFromBase64(imageActionSrc, "MEME_");
+    }
+
+    function share(){
+        c = document.getElementById("canvas");
+        imageActionSrc=c.toDataURL();
+        path = AppsgeyserJSInterface.saveImageFromBase64(imageActionSrc, "MEME_");
+        AppsgeyserJSInterface.sharePicture(path, "Here is picture!");
+    }
+
+
+    $(document).ready(function(){
+
+        $('html,body').css('background-color','#'+Settings.bgColor);
+        $('#selectMemeButton').css('background-color','#'+Settings.selectColor);
+        $('#shareButton').css('background-color','#'+Settings.shareColor);
+        $('#saveButton').css('background-color','#'+Settings.downloadColor);
+
+
+        $('.container').css('min-height',window.innerHeight-15+'px');
+        renderSelection();
+        $('#constructor').hide();
+        meme();
+    })
+
+
+
+</script>
+<style>
+
+</style>
+<body>
+    <div class="container z-depth-1">
+
+        <a class="waves-effect waves-light center-align btn" id="selectMemeButton">SELECT A MEME</a>
+        <div class="row center-align" id="memes"></div>
+
+        <div class="row center-align" id="constructor">
+            <canvas id="canvas"></canvas>
+            <div class="input-field">
+                <input placeholder="TOP TEXT" id="top_text" type="text">
+            </div>
+            <div class="input-field">
+                <input placeholder="BOTTOM TEXT" id="bottom_text" type="text">
+            </div>
+            <div  class="row center-align" id="controls">
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn" id="shareButton" onclick="share()"><i class="material-icons left">share</i>SHARE</a>
+                </div>
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn" id="saveButton" onclick="save()"><i class="material-icons left">file_download</i>DOWNLOAD</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
