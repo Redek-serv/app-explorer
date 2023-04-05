@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>Business App</title>
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+
+<script>
+        var company=[{"name":"Name","text":"MEU NOME"}];
+
+    var website=[{"name":"Website","text":"http:\/\/MEU-SITE"}];
+
+    var phone=[{"name":"Phone","text":"(35)MEU TELEFONE"}];
+
+    var pages = [{"name":"MAIS INFORMA\u00c7\u00c3O","text":"INFORMA\u00c7\u00c3O"},{"name":"INFORMA\u00c7\u00c3O 01","text":"INFORMA\u00c7\u00c3O 01"},{"name":"INFORMA\u00c7\u00c3O 02","text":"INFORMA\u00c7\u00c3O 02"}];
+
+    var email = [{"name":"E-mail","text":"MEU@EMAIL"}];
+
+    var about = [{"name":"About","text":"SOBRE MINHA EMPRESA"}];
+
+
+    function showPages() {
+
+        function wrap( str ) {
+            return '<a href="' + str + '">' + str + '<\/a>';
+        }
+
+        function replaceText(field) {
+            $(field).each( function(){
+                $(this).html($(this).html().replace(/\bhttp[^ ]+/ig, wrap));
+            })
+        }
+
+        $('#title').text(company[0].text);
+
+        $('#webLink').attr("href", website[0].text);
+        $('#webText').text(website[0].text);
+        $('#webLink').find('p').text(website[0].name);
+
+        $('#phoneLink').attr("href", "tel:" + phone[0].text);
+        $('#phoneText').text(phone[0].text);
+        $('#phoneLink').find('p').text(phone[0].name);
+
+        $('#emailLink').attr("href", "mailto:" + email[0].text);
+        $('#emailText').text(email[0].text);
+        $('#emailLink').find('p').text(email[0].name);
+
+
+
+        $('#aboutText').text(about[0].text);
+
+        $('#aboutLink').find('p').text(about[0].name);
+
+        if (phone[0].text == "") {
+            $('#phoneLink').hide();
+        }
+        if (website[0].text == "") {
+            $('#webLink').hide();
+        }
+        if (email[0].text == "") {
+            $('#emailLink').hide();
+        }
+        if (about[0].text == "") {
+            $('#aboutLink').hide();
+        }
+
+        var $template = $('.extra');
+        for (var i in pages) {
+            $template.find('.s10 h5').text(pages[i].text);
+
+            $template.find('.s10 p').text(pages[i].name);
+
+            var $clone = $template.clone();
+            $('.info').append($clone);
+            if (pages[i].text == "") {
+                $clone.hide();
+            }
+        }
+        replaceText('.s10 h5');
+
+    }
+
+    $(document).ready(function () {
+        showPages();
+        console.log('teal');
+    });
+</script>
+</head>
+<body>
+<div class="container teal lighten-4">
+    <div class="parallax-container">
+        <img id="image" class="responsive-img" src="logo.png">
+        <span id="title" class="img-title"></span>
+    </div>
+</div>
+
+<div class="container info">
+    <a id="phoneLink" href="">
+        <div class="row">
+            <div class="col s2">
+                <h5></h5>
+                <i class="mdi-communication-call small teal-text padding-icon"></i>
+            </div>
+            <div class="col s10">
+                <h5 id="phoneText"></h5>
+
+                <p class="grey-text lighten-1"></p>
+
+                <div class="divider"></div>
+            </div>
+        </div>
+    </a>
+
+    <a id="webLink" href="">
+        <div class="row">
+            <div class="col s2">
+                <h5></h5>
+                <i class="mdi-social-public small teal-text padding-icon"></i>
+            </div>
+            <div class="col s10">
+                <h5 id="webText"></h5>
+
+                <p class="grey-text lighten-1"></p>
+
+                <div class="divider"></div>
+            </div>
+        </div>
+    </a>
+
+    <a id="emailLink" href="">
+        <div class="row">
+            <div class="col s2">
+                <h5></h5>
+                <i class="mdi-communication-email small teal-text padding-icon"></i>
+            </div>
+            <div class="col s10">
+                <h5 id="emailText"></h5>
+
+                <p class="grey-text lighten-1"></p>
+
+                <div class="divider"></div>
+            </div>
+        </div>
+    </a>
+
+    <div id="aboutLink" class="row">
+        <div class="col s2">
+            <h5></h5>
+            <i class="mdi-action-info small teal-text padding-icon"></i>
+        </div>
+        <div class="col s10">
+            <h5 class="nowrap" id="aboutText"></h5>
+
+            <p class="grey-text lighten-1"></p>
+
+            <div class="divider"></div>
+        </div>
+    </div>
+
+    <div style="display: none">
+        <div class="row extra">
+            <div class="col s2">
+                <h5></h5>
+                <i class="mdi-action-info-outline small teal-text padding-icon"></i>
+            </div>
+            <div class="col s10">
+                <h5 class="nowrap"></h5>
+
+                <p class="grey-text lighten-1"></p>
+
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="js/materialize.js"></script>
+</body>
+</html>
