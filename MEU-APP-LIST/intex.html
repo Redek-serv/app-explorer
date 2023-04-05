@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Material Design Audio Player</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
+    <!-- Not required: presentational-only.css only contains CSS for prettifying the demo -->
+    <link rel="stylesheet" href="css/presentational-only.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+</head>
+
+<body>
+<div id="nonBlock" style="display: none;">
+    <div class="valign-wrapper">
+        <h5 class="valign center">Fill in all the fields</h5>
+    </div>
+</div>
+<!--<div class='background' id='background'>&nbsp;</div>-->
+<div id='player'>
+
+    <div id="run-loader">
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+    </div>
+    <audio id='mytrack' src=''>&nbsp;</audio>
+
+    <div id='artwork'><span></span></div>
+
+    <div id='tracks'>
+        <div trackartist='Tobu & Syndec' trackname='Dusk' trackartwork='01.jpg'></div>
+        <div trackartist='Disfigure' trackname='Blank' trackartwork='02.jpg'></div>
+        <div trackartist='Alan Walker' trackname='Fade' trackartwork='03.jpg'></div>
+    </div>
+</div>
+
+<div id='ui'>
+
+    <div id="time" style="display: none;">
+        <span id='elapsedtime'>00:00</span>
+        <span id='totaltime'>00:00</span>
+    </div>
+
+    <div id='progressbar' style="display: none;">
+        <div><span id='pointer'>&nbsp;</span></div>
+    </div>
+    <div id='controls'>
+        <button id='prev' class='control'><i class="mdi-av-skip-previous small"></i></button>
+        <button id='play' class='control'><i class="mdi-av-play-arrow small"></i></button>
+        <button id='next' class='control'><i class="mdi-av-skip-next small"></i></button>
+    </div>
+
+</div>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/xhttpAjax.js"></script>
+<script src="js/uri.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>
