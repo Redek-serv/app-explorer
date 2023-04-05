@@ -1,0 +1,103 @@
+body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,span,em,strong,img,form,fieldset,input,textarea,button,pre,table,tr,th,td,blockquote,code,label,cite,i,dialog,figure,hgroup{padding:0;margin:0;font-family:Helvetica,微软雅黑;}
+body{font-size:12px;color:#333;background:url(images/bg.jpg) repeat;}
+:focus{outline:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+fieldset,img{border:0;}
+ul,ol,li{list-style-type:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th,tr,td{text-align:left;}
+u,ins{text-decoration:none;}
+label{cursor:pointer;}
+select,input,img{vertical-align:middle;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%;resize:none;}
+a{text-decoration:none}
+.fl{float:left}
+.fr{float:right}
+.location{width:828px;height:44px;line-height:44px;color:#888;font-size:12px;margin-bottom:6px;}
+.location a{color:#888;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{zoom:1;display:inline-block;_height:1px}
+*html .clearfix{height:1%}
+*+html .clearfix{height:1%}
+.clearfix{display:block}
+del{color:#3899ed}
+.head{width:100%;height:75px;background:#262626;margin-bottom:3px;position:fixed;top:0;left:0;z-index:99}
+.cnlogo{width:300px;height:75px;float:left;background:url(images/cnlogo_s.png) no-repeat center center;}
+.logo{width:300px;height:75px;float:left;background:url(images/logo_s.png) no-repeat}
+.logo img{height:75px;width:300px;}
+.language{display:inline-block;float:left;height:27px;line-height:27px;margin-top:24px;color:#afafaf;}
+.language a{text-decoration:none;color:#afafaf;font-size:22px;}
+.menu{width:auto;height:75px;display:inline-block;float:right;}
+.menu a{padding:0 30px;line-height:75px;display:inline-block;color:#cfcfcf;font-size:20px;font-family:tahoma,微软雅黑;float:left}
+.menu a:hover{color:#fff;}
+.gw{float:right}
+.gw a{float:left;margin:0;padding:0;}
+.gw img{height:75px;}
+.con{width:1036px;padding-top:78px;min-height:525px;margin:auto}
+.con h2{font-size:33px;color:#139dd8;line-height:135px;}
+.con h4{font-size:22px;line-height:27px;color:#3b3b3b}
+.con p{font-size:18px;color:#6b6b6b;line-height:27px;margin-bottom:24px;}
+.con_box{width:1036px;margin:auto;}
+.h_top{width:1036px;height:150px;padding:25px 0;text-align:center}
+.h_top h1{height:48px;line-height:24px;padding-top:30px;padding-bottom:24px;font-size:46px;font-family:Helvetica,微软雅黑,微软雅黑;color:#000;}
+.h_top h1 span{color:#149dd8;padding-left:38px;}
+.h_top h1 sub{color:#149dd8;font-size:24px;line-height:10px;}
+.h_top p{font-size:18px;font-family:Helvetica,微软雅黑,微软雅黑;line-height:28px;}
+.top_img{width:1382px;height:353px;}
+.video_list{width:1036px;height:396px;margin:auto;}
+.video_list dl{width:345px;height:396px;display:block;float:left}
+.video_list dl dt{width:345px;height:45px;padding-top:7px;line-height:45px;text-align:center;font-size:20px;color:#000;display:block;font-family:Helvetica,微软雅黑,微软雅黑;}
+.video_list dl dd{width:291px;height:343px;padding:0 27px;}
+.video_box{width:291px;height:224px;}
+.video_box img{width:291px;height:224px;}
+.dl{width:195px;height:38px;line-height:38px;text-align:center;display:block;margin:auto;margin-top:28px;font-size:18px;color:#fff;font-family:Helvetica,微软雅黑,微软雅黑;}
+#phone,#j_btn{background:#9f4b2f}
+#phone:hover,#j_btn:hover{background:#c86746}
+#phone:active,#j_btn:active{background:#6d3421}
+#win_dl,#mac_dl{background:#139dd7}
+#win_dl:hover,#mac_dl:hover{background:#3cb9ee}
+#win_dl:active,#mac_dl:active{background:#0e729c}
+.j_btn{width:195px;height:38px;line-height:38px;text-align:center;display:block;margin:auto;margin-top:28px;font-size:18px;color:#fff;font-family:Helvetica,微软雅黑;}
+.show{width:867px;padding-top:150px;background:url(images/arrow_bg.png) no-repeat top center;margin:auto}
+.show dl{width:405px;height:358px;display:block;padding-top:75px;padding-left:28px;padding-right:29px;}
+.show dt{color:#159dd8;font-size:33px;font-family:Helvetica,微软雅黑;margin-bottom:38px;}
+.show dd{font-size:18px;color:#6b6b6b;font-family:Helvetica,微软雅黑;line-height:28px;}
+.b_left{width:405px;height:433px;}
+.banner1{width:867px;height:420px;margin-bottom:10px;}
+.banner1 .b_left{float:left}
+.banner1 dl{float:right;}
+.banner2{width:867px;height:420px;margin-bottom:10px;}
+.banner2 .b_left{float:right}
+.banner2 dl{float:left;}
+.banner3{width:867px;height:420px;margin-bottom:10px;}
+.banner3 .b_left{float:left}
+.banner3 dl{float:right}
+.banner1 .b_left img,.banner2 .b_left img,.banner3 .b_left img{width:405px;}
+.foot{width:100%;height:75px;line-height:75px;background:#262626;color:#fff;font-size:18px;font-family:tahoma;}
+.f_cnlogo{width:308px;height:75px;background:url(images/cnlogo_s.png) no-repeat center center;float:left}
+.foot a{color:#cfcfcf;font-size:18px;padding:0 9px}
+.foot a:hover{color:#fff;}
+.foot span{padding:0 15px;margin-left:15px;}
+#big_zz{width:100px;height:100px;position:fixed;z-index:99;background:#000;filter:alpha(opacity=60);filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity:0.6;opacity:0.6;display:none;}
+.jump{width:743px;height:260px;padding:188px 120px 82px 92px;position:fixed;z-index:9999;background:#fff url(images/j_bg.png) repeat-x;border:3px solid #f2f2f2;box-shadow:3px 3px 3px #ddd}
+.input_box{width:743px;height:48px;}
+.input_bg{width:521px;height:45px;background:url(images/input_bg.png) no-repeat;float:left}
+.input_bg input{width:501px;padding:0 10px;height:45px;line-height:45px;background:transparent;border:none;font-size:20px;font-family:Tahoma, Geneva, sans-serif;color:#a4a4a4}
+.i_btn{width:127px;height:46px;display:block;float:right;background:url(images/s_btn.png) no-repeat;cursor:pointer;border:none}
+.yz{width:743px;height:48px;line-height:48px;margin-bottom:56px;font-size:18px;color:#999}
+.d_info{width:743px;height:104px;line-height:50px;color:#6f6f6f;font-size:18px;text-align:center}
+.jump1{width:610px;height:250px;padding:127px 175px 154px 175px;position:fixed;z-index:9999;background:#fff url(images/j_bg.png) repeat-x;border:3px solid #f2f2f2;box-shadow:3px 3px 3px #ddd}
+.jump1 p{font-size:22px;color:#a5a5a5;line-height:46px;}
+.go{width:127px;height:46px;background:url(images/go.png) no-repeat;display:block;margin:auto;margin-top:75px;}
+.jump_pc{width:576px;height:232px;padding:115px 192px 183px 192px;position:fixed;z-index:9999;background:#fff url(images/j_bg.png) repeat-x;border:3px solid #f2f2f2;box-shadow:3px 3px 3px #ddd}
+.jump_phone{width:658px;height:420px;padding:55px 151px;position:fixed;z-index:9999;background:#fff url(images/j_bg.png) repeat-x;border:3px solid #f2f2f2;box-shadow:3px 3px 3px #ddd}
+.jump_phone p{font-size:24px;color:#000;line-height:50px;}
+.jump_video1,.jump_video2,.jump_video3{width:776px;height:596px;position:fixed;z-index:9999;background:#fff;border:3px solid #f2f2f2;box-shadow:3px 3px 3px #ddd}
+.for_win{width:192px;height:232px;display:block;float:left;background:url(images/for_w.png) no-repeat}
+.for_mac{width:192px;height:232px;display:block;float:right;background:url(images/for_m.png) no-repeat}
+.for_ios{width:192px;height:232px;display:block;float:right;background:url(images/for_ios.png) no-repeat}
+.for_android{width:192px;height:232px;display:block;float:left;background:url(images/for_android.png) no-repeat}
+.for_dev{width:150px;height:150px;padding:14px 21px;display:block;background:url(images/for_dev.png) no-repeat;margin-top:25px;}
+.for_dev img{width:150px;height:150px;}
+.for_dev span{display:block;width:150px;height:80px;line-height:80px;text-align:center;font-size:24px;color:#000}
+.video1,.video2,.video3{cursor:pointer;}

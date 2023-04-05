@@ -1,0 +1,514 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Desenvolvimento</title>
+<link rel="shortcut icon" href="logo.ico" />
+<link rel="apple-touch-icon" href="logo.png" />
+<script src="jquery-1.7.1.min.js"></script>
+
+<script>
+        if(navigator.userAgent.match(/Android/i)) {  
+   			window.location = 'mobile.html';  
+ 			}
+		else{	 
+		var Apple = {};
+        Apple.UA = navigator.userAgent;
+		
+        Apple.Device = false;
+        Apple.Types = ["iPhone", "iPod", "iPad"];
+        for (var d = 0; d < Apple.Types.length; d++) {
+            var t = Apple.Types[d];
+            Apple[t] = !!Apple.UA.match(new RegExp(t, "i"));
+            Apple.Device = Apple.Device || Apple[t];
+        }
+        if (Apple.Device) {
+            if (Apple["iPhone"] || Apple["iPod"]) {
+                window.location.href = "mobile.html";
+            }
+            else {
+                window.location.href = "mobile.html";
+            }
+        }
+		}
+		
+		function loadjscssfile(filename,filetype){
+		if(filetype == "js"){
+			var fileref = document.createElement('script');
+			fileref.setAttribute("type","text/javascript");
+			fileref.setAttribute("src",filename);
+		}else if(filetype == "css"){
+		
+			var fileref = document.createElement('link');
+			fileref.setAttribute("rel","stylesheet");
+			fileref.setAttribute("type","text/css");
+			fileref.setAttribute("href",filename);
+		}
+	   if(typeof fileref != "undefined"){
+			document.getElementsByTagName("head")[0].appendChild(fileref);
+		}
+    
+		}
+	var dk=document.documentElement.clientWidth;
+		
+	if(dk<1440){
+		loadjscssfile("css1440.css","css");
+		}
+	else{
+		loadjscssfile("css1920.css","css");
+		}
+	window.onresize=function(){
+		var dk=document.documentElement.clientWidth;
+		if(dk<1440){
+		loadjscssfile("css1440.css","css");
+		}
+	else{
+		loadjscssfile("css1920.css","css");
+		}
+		} 	
+		
+$(function(){
+
+		
+	function detectOS() { 
+	var sUserAgent = navigator.userAgent; 
+	
+	var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows"); 
+	var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel"); 
+	var win_dl=document.getElementById("win_dl");
+	var mac_dl=document.getElementById("mac_dl");
+	if (isMac) {
+		
+		win_dl.style.display="none";
+		mac_dl.style.display="block";
+		}
+	else { 
+		
+		win_dl.style.display="block";
+		mac_dl.style.display="none";
+	}
+	
+	} 
+	detectOS();
+	
+
+	var web_url=window.location.href;
+	if(web_url.indexOf("?")>=0){
+	function getUrlParam(name)
+	{
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+	var r = window.location.search.substr(1).match(reg);  
+	if (r!=null) return unescape(r[2]); return null; 
+	} 
+	var qude=getUrlParam("from");
+	var w_dl_href = $("#win_dl").attr("href");
+	//var m_dl_href = $("#mac_dl").attr("href");
+	var qudao=new RegExp("Z001");
+	var newstart_win=w_dl_href.replace(qudao,qude);
+	//var newstart_mac=m_dl_href.replace(qudao,qude);
+	$("#win_dl").attr("href",newstart_win);
+	//$("#mac_dl").attr("href",newstart_mac);
+	}
+				
+	})
+</script>
+<!--<link href="css1920.css" rel="stylesheet" type="text/css">-->
+
+<!--<link href="css1440.css" rel="stylesheet" type="text/css">-->
+
+</head>
+
+<body>
+<div id="big_zz"></div>
+<div class="jump" style="display:none">
+	<div class="input_box">
+    	<div class="input_bg">
+        	<input name="" type="text" value="Please input your email address" class="j_input">
+        </div>
+      <button class="i_btn"></button>
+  </div>
+    <div class="yz"></div>
+    <div class="d_info">
+    	<p>DESENVOLVIMENTO DE WEB SEM ENROLAÇÃO.</p>
+        <p>（Por favor, não estar preocupado como nós nunca lhe enviaremos o spam.）</p>
+    </div>	
+</div>
+<div class="jump1" style="display:none">
+	<p>
+    Após a nomeação, recomendamos que você tente
+o Windows versão web ou versão MAC.
+    </p>
+    <a href="javascript:void(0)" class="go"></a>
+</div>
+
+<div class="jump_phone" style="display:none">
+	<p>Desenvolvimento do telefone móvel para <a href="http://www.Desenvolvimento">www.Desenvolvimento</a> to download.</p>
+	<p>Digitalize o código QR abaixo</p>
+	<a href="#" class="for_dev fl" onClick="_gaq.push(['_trackEvent', 'Android', '0000']);">
+    	<img src="images/android_two_code.png" />
+        <span>For Android</span>
+    </a>
+    <a href="#" class="for_dev fr" onClick="_gaq.push(['_trackEvent', 'iOS', '00000']);">
+    	<img src="images/ios_two_code.png" />
+        <span>For iOS</span>
+    </a>
+</div>
+<div class="jump_video1" style="display:none">
+	<iframe width="776" height="596" src="https://www.youtube.com/embed/hRXlp6yacdQ" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="jump_video2" style="display:none">
+	<iframe width="776" height="596" src="https://www.youtube.com/embed/hRXlp6yacdQ" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="jump_video3" style="display:none">
+	<iframe width="776" height="596" src="https://www.youtube.com/embed/hRXlp6yacdQ" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="head">
+	<div class="logo"></div>
+
+    <div class="gw">
+        <a href="https://www.twitter.com/Desenvolvimento" target="_blank" class="g"><img src="images/t.jpg" /></a>
+        <a href="https://www.facebook.com/Desenvolvimento" target="_blank" class="g"><img src="images/f.jpg" /></a>
+        <!--<a href="https://www.facebook.com/profile.php?id=100006939196556" target="_blank" class="g"><img src="images/f.jpg" /></a>-->
+        <a href="https://plus.google.com/Desenvolvimento" target="_blank" rel="publisher" class="g"><img src="images/g.jpg" /></a>
+        
+  </div>
+    <div class="menu">
+    	<a href="index.html">Home</a>
+        <a href="mzsm.html">forum Online</a>
+    	<a href="contatos.html">Contatos</a>
+    </div>
+    
+</div>
+
+<div class="con clearfix">
+	<div class="h_top">
+    	<h1><span>DESENVOLVIMENTO DE WEB</span></h1>
+        <p>DESENVOLVIMENTO DE WEB SEM ENROLAÇÃO. Com criatividade e foco entregamos soluções geniais em forma de Web site.</p>
+    
+    </div>
+    <div class="video_list">
+        	
+            <dl>
+            	<dt>Experiência perfeito controle</dt>
+                <dd>
+                	<div class="video_box"> <img src="images/video1.jpg" class="video1" />
+                </div>
+                    <a href="#" class="dl" id="phone">Download 01 </a>
+                </dd>
+            </dl>
+            <dl>
+            	<dt>A Melhor Performance</dt>
+                <dd>
+                	<div class="video_box">
+                    	<img src="images/video2.jpg" class="video2" />
+                    </div>
+                    <a href="#" id="win_dl" class="dl" onclick="_czc.push(['_trackEvent', 'window', '']);">Download 02</a>
+   					<a href="#" id="mac_dl" class="dl" onclick="_czc.push(['_trackEvent', 'mac', '']);" style="display:none">Download 003</a>
+                </dd>
+            </dl>
+            <dl>
+            	<dt style="font-family:helvetica">Videos demos</dt>
+                <dd>
+                	<div class="video_box">
+                    	<img src="images/video3.jpg" class="video3" />
+                    </div>
+                    <a href="#" class="dl" id="j_btn">Download 03</a>
+                </dd>
+            </dl>
+        </div>
+    <div class="show clearfix">
+    	<div class="banner1">
+        	<div class="b_left">
+            	<img src="images/b1.png" />
+            </div>
+            <dl>
+            	<dt> Performance</dt>
+                <dd>
+                Temos conseguido grande avanço Achievement web kernel e renderização de gráficos, na mesma configuração de hardware PC, o desempenho global do que outros produtos similares mais de 1.</dd>
+            </dl>
+        </div>
+        <div class="banner2">
+        	<div class="b_left">
+            	<img src="images/b2.png" />
+            </div>
+            <dl>
+            	<dt>compatibilidade</dt>
+                <dd>
+                Nós perfeitamente resolvido problemas na aplicação ARM que em execução no quadro x86, aplicações compatíveis e jogos disponíveis mais de 99%.</dd>
+            </dl>
+        </div>
+        <div class="banner3">
+        	<div class="b_left">
+            	<img src="images/b3.png" />
+            </div>
+            <dl>
+            	<dt>controlabilidade</dt>
+                <dd>
+                web é o primeiro multi-touch simulador suportado no mundo, na web, a experiência de controle de jogo é muito mais do que no telefone.</dd>
+            </dl>
+        </div>
+        <p style="text-align:center; font-size:18px; color:#000">* testado em ambiente e Ativado</p>
+    </div>    
+</div>
+
+<div class="foot">
+	<div class="f_logo"></div>
+    <div style="float:right">
+		<a href="#">Copyright © 2011-2015 web  |</a>
+        <a href="contatos.html">Sobre Nós</a>
+        <span>Contact us : contact@web.com</span>
+	</div>
+</div>
+<script>
+$(function(){
+	
+	function jump(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump").css("top",top);
+		$(".jump").css("left",left);
+		$(".jump").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump").css("top",top);
+		$(".jump").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+		
+		}
+		
+	function jump1(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump1").css("top",top);
+		$(".jump1").css("left",left);
+		$(".jump1").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump1").css("top",top);
+		$(".jump1").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+		}
+	
+	function pc(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump_pc").css("top",top);
+		$(".jump_pc").css("left",left);
+		$(".jump_pc").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump_pc").css("top",top);
+		$(".jump_pc").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+		}
+	
+	function phone(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump_phone").css("top",top);
+		$(".jump_phone").css("left",left);
+		$(".jump_phone").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-530)/2);
+		var left=Math.ceil((kuandu-960)/2);
+		$(".jump_phone").css("top",top);
+		$(".jump_phone").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+		}
+	
+	function video1(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-596)/2);
+		var left=Math.ceil((kuandu-776)/2);
+		$(".jump_video1").css("top",top);
+		$(".jump_video1").css("left",left);
+		$(".jump_video1").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-596)/2);
+		var left=Math.ceil((kuandu-776)/2);
+		$(".jump_video1").css("top",top);
+		$(".jump_video1").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+		}
+	function video2(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-596)/2);
+		var left=Math.ceil((kuandu-776)/2);
+		$(".jump_video2").css("top",top);
+		$(".jump_video2").css("left",left);
+		$(".jump_video2").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-596)/2);
+		var left=Math.ceil((kuandu-776)/2);
+		$(".jump_video2").css("top",top);
+		$(".jump_video2").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+	}
+	function video3(){
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-596)/2);
+		var left=Math.ceil((kuandu-776)/2);
+		$(".jump_video3").css("top",top);
+		$(".jump_video3").css("left",left);
+		$(".jump_video3").show();
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		$("#big_zz").show();
+		$(window).resize(function() {
+		var kuandu=document.documentElement.clientWidth;
+		var gaodu=document.documentElement.clientHeight;
+		var top=Math.ceil((gaodu-596)/2);
+		var left=Math.ceil((kuandu-776)/2);
+		$(".jump_video3").css("top",top);
+		$(".jump_video3").css("left",left);
+		$("#big_zz").css("width",kuandu);
+		$("#big_zz").css("height",gaodu);
+		})
+		}
+		
+	function chkEmail(strEmail) {
+			if(typeof(strEmail)==="undefined"){
+				return false;
+			}
+			if (strEmail.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	$(".video1").click(function(){
+		video1();
+		$("#big_zz").click(function(){
+		$("#big_zz").hide();
+		$(".jump_video1").hide();
+		return false;
+		})	
+		})
+	$(".video2").click(function(){
+		video2();
+		$("#big_zz").click(function(){
+		$("#big_zz").hide();
+		$(".jump_video2").hide();
+		return false;
+		})	
+		})
+	$(".video3").click(function(){
+		video3();
+		$("#big_zz").click(function(){
+		$("#big_zz").hide();
+		$(".jump_video3").hide();
+		return false;
+		})	
+		})	
+	/*$("#pc").click(function(){
+		pc();
+		$("#big_zz").click(function(){
+		$("#big_zz").hide();
+		$(".jump_pc").hide();
+		
+		return false;
+		})	
+		})*/
+		
+	$("#phone").click(function(){
+		phone();
+		$("#big_zz").click(function(){
+		$("#big_zz").hide();
+		$(".jump_phone").hide();
+		
+		return false;
+		})	
+		})
+	
+	$("#j_btn").click(function(){
+		jump();
+		$("#big_zz").click(function(){
+		$("#big_zz").hide();
+		$(".jump").hide();
+		$(".jump1").hide();
+		return false;
+		})	
+		})
+		
+	$(".j_input").click(function(){
+		if($(".j_input").val()=="Please input your email address"){
+			$(this).val("");
+			}
+		})
+	$(".i_btn").click(function(){
+		if(chkEmail($(".j_input").val())){
+				$("#big_zz").hide();
+				$(".jump").hide();
+				jump1();
+				}else{
+				$(".yz").html("error");
+				}
+		})
+	
+	$(".go").click(function(){
+		$("#big_zz").hide();
+		$(".jump").hide();
+		$(".jump1").hide();
+		})			
+	})
+</script>
+</body>
+</html>
+
